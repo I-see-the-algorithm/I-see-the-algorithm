@@ -2,8 +2,8 @@ import logo from './logo.svg';
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import './App.css';
 
-import HomePage from './routes/HomePage';
-import StackPage from './routes/DataStructures/StackPage';
+import HomePage from './Screen/HomePage';
+import StackPage from './Screen/DataStructures/StackPage';
 
 function App() {
   return (
