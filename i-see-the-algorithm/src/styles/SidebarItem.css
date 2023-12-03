@@ -3,7 +3,6 @@
     font-size: 20px;
     font-weight: bold;
 }
-.sidebar-item-unactivated{
-    background-color: cadetblue;
+.sidebar-item-nonactivated{
     font-size: 20px;
 }

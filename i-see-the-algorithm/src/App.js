@@ -4,18 +4,17 @@ import './styles/App.css';
 
 import HomePage from './Screen/HomePage';
 import StackPage from './Screen/DataStructures/StackPage';
+import Sidebar from "./components/sidebar/Sidebar";
+import Navigation from "./navigation/navigation";
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
-        {/* nav bar or side bar */}
-        <Routes>
-          <Route path="/" element={<HomePage/>} />
-          <Route path="/stack" element={<StackPage/>} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Sidebar/>
+        <Navigation/>
+      </div>
+    </BrowserRouter>
   );
 }
 

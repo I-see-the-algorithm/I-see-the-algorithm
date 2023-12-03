@@ -1,6 +1,7 @@
 import React from 'react';
-import {Link, useLocation} from 'react-router-dom';
+import {BrowserRouter, Link, useLocation} from 'react-router-dom';
 import SidebarItem from "./SidebarItem";
+import '../../styles/Sidebar.css';
 
 function Sidebar(){
   const pathName = useLocation().pathname;
