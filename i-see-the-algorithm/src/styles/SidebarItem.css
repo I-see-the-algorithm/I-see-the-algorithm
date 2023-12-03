@@ -1,0 +1,9 @@
+.sidebar-item-activated{
+    background-color: cadetblue;
+    font-size: 20px;
+    font-weight: bold;
+}
+.sidebar-item-unactivated{
+    background-color: cadetblue;
+    font-size: 20px;
+}
