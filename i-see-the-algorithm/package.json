@@ -19,7 +19,7 @@
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://i-see-the-algorithm.github.io/I-see-the-algorithm/",
+  "homepage": "https://i-see-the-algorithm.github.io/",
   "eslintConfig": {
     "extends": [
       "react-app",
