@@ -6,7 +6,7 @@ import '../../styles/Sidebar.css';
 function Sidebar(){
   const pathName = useLocation().pathname;
   const menus = [
-    {name: "홈 화면", path: "/"},
+    {name: "홈 화면", path: "/I-see-the-algorithm"},
     {name: "스택", path: "/stack"}
   ];
   return (

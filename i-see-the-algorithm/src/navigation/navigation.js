@@ -6,7 +6,7 @@ import StackPage from "../Screen/DataStructures/StackPage";
 const Router = () => {
   return (
     <Routes>
-      <Route path="/" element={<HomePage/>}/>
+      <Route path="/I-see-the-algorithm" element={<HomePage/>}/>
       <Route path="/stack" element={<StackPage/>}/>
     </Routes>
   );
