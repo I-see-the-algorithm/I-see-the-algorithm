@@ -1,16 +1,14 @@
 import React from 'react';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {HomePage} from "../Screen";
-import {StackPage} from "../Screen/DataStructures";
+import HomePage from "../Screen/HomePage";
+import StackPage from "../Screen/DataStructures/StackPage";
 
 const Router = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage/>}/>
-        <Route path="/stack" element={<StackPage/>}/>
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<HomePage/>}/>
+      <Route path="/stack" element={<StackPage/>}/>
+    </Routes>
   );
 };
 
