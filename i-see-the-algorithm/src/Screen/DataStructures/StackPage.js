@@ -2,26 +2,53 @@
  * DataStructure/Stack Page
  */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import StackAnimation from "../../components/stack/StackAnimation";
 
 const StackPage = () => {
     const [commands, setCommands] = useState([]);
     const [el, setEl] = useState(1);
 
-    const handlePush = () => {
+    const [cmdList, setCmdList] = useState([]);
+
+    const addCommand = () => {
         const newCmd = {
             cmd: 1,
             el: el
         };
         setEl(el + 1);
-        setCommands([...commands, newCmd]);
+        setCmdList([...cmdList, newCmd]);
     }
-    const handlePop = () => {
-        const newCmd = {
-            cmd: 0
-        };
-        setCommands([...commands, newCmd]);
+    const popCmd = (index) => {
+        setCmdList((prevCmdList) => {
+            const updatedCmdList = [...prevCmdList];
+            updatedCmdList.splice(index, 1);
+            return updatedCmdList;
+        });
+    }
+    const handleOperationChange = (index, newOperation) => {
+        setCmdList((prevCmdList) => {
+            const updatedCmdList = [...prevCmdList];
+            updatedCmdList[index] = {
+                ...updatedCmdList[index],
+                cmd: newOperation === "push" ? 1 : 0,
+            };
+            return updatedCmdList;
+        });
+    };
+    const handleInputChange = (index, value) => {
+        setCmdList((prevCmdList) => {
+            const updatedCmdList = [...prevCmdList];
+            updatedCmdList[index] = {
+                ...updatedCmdList[index],
+                el: value,
+            };
+            return updatedCmdList;
+        });
+    }
+
+    const onClickPlayButton = () => {
+        setCommands([...cmdList]);
     }
 
     return (
@@ -30,8 +57,34 @@ const StackPage = () => {
 
             <StackAnimation commands={commands}/>
 
-            <button onClick={handlePush}>Push</button>
-            <button onClick={handlePop}>Pop</button>
+            <button onClick={onClickPlayButton}>Play</button>
+
+            <div>
+                <ul>
+                {cmdList.map((cmd, index) => (
+                    <li key={index}>
+                        <select
+                            value={cmd.cmd === 1 ? "push" : "pop"}
+                            onChange={(e) => handleOperationChange(index, e.target.value)}
+                        >
+                            <option value="push">push</option>
+                            <option value="pop">pop</option>
+                        </select>
+                        {cmd.cmd === 1 && (
+                            <input
+                                type="number"
+                                value={cmd.el}
+                                onChange={(e) =>
+                                    handleInputChange(index, e.target.value)
+                                }
+                            />
+                        )}
+                        <button onClick={() => popCmd(index)}>x</button>
+                    </li>
+                ))}
+                </ul>
+                <button onClick={addCommand}>Add</button>
+            </div>
         </div>
     )
 }
